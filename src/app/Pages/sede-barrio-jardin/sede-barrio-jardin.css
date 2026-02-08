@@ -5,7 +5,7 @@
 .sucursal-detalle {
   width: 100%;
   min-height: 100vh;
-  background-image: url('/images/barriojardin.jpg');
+  background-image: url('/assets/images/barriojardin.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -59,6 +59,11 @@
   margin-top: 20px;
   cursor: pointer;
 }
+.btn-evo:hover{
+  font-weight: bold;
+  color: #0d4fa8;
+  text-shadow: 0.5px 0 0 currentColor;
+}
 
 .btn-info-evo {
   background: #0d4fa8;
@@ -69,6 +74,11 @@
   margin-top: 15px;
   cursor: pointer;
 }
+.btn-info-evo:hover{
+  color: orange;
+  text-shadow: 0.5px 0 0 currentColor;
+}
+
 
 /* TARJETA NARANJA */
 .info {
@@ -148,8 +158,8 @@
 }
 
 /* IMÁGENES */
-.card1 { background-image: url("/images/fondobicis.jpg"); }
-.card2 { background-image: url("/images/profebrian.jpg"); }
+.card1 { background-image: url("/assets/images/fondobicis.jpg"); }
+.card2 { background-image: url("/assets/images/profebrian.jpg"); }
 
 /* BENEFICIOS */
 .beneficios {

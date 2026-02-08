@@ -7,7 +7,7 @@
 .sucursal-detalle {
   width: 100%;
   min-height: 100vh;
-  background-image: url('/images/villabelgrano.jpg');
+  background-image: url('/assets/images/villabelgrano.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -60,6 +60,11 @@
   margin-top: 20px;
   cursor: pointer;
 }
+.btn-evo:hover{
+  font-weight: bold;
+  color: #0d4fa8;
+  text-shadow: 0.5px 0 0 currentColor;
+}
 
 .btn-info-evo {
   background: #0d4fa8;
@@ -69,6 +74,10 @@
   color: white;
   margin-top: 15px;
   cursor: pointer;
+}
+.btn-info-evo:hover{
+  color: orange;
+  text-shadow: 0.5px 0 0 currentColor;
 }
 
 /* TARJETA NARANJA */
@@ -149,8 +158,8 @@
 }
 
 /* IMÁGENES DE FONDO CARDS */
-.card1 { background-image: url("/images/fondobicis.jpg"); }
-.card2 { background-image: url("/images/adultofit.jpg"); }
+.card1 { background-image: url("/assets/images/fondobicis.jpg"); }
+.card2 { background-image: url("/assets/images/adultofit.jpg"); }
 
 /* BENEFICIOS */
 .beneficios {
@@ -180,7 +189,7 @@ img {
 }
 
 /* MOBILE AJUSTES */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
   .hero {
     padding: 70px 0 40px;
