@@ -1,0 +1,234 @@
+/* CONTENEDOR PROPIO (NO TOCA BOOTSTRAP) */
+.evo-container {
+  max-width: 1000px;
+}
+
+/* SECCIÓN FONDO */
+.sucursal-detalle {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('/images/villabelgrano.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.sucursal-detalle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(226, 147, 0, 0.5) 0%,
+    rgba(0,0,0,0.45) 15%,
+    rgba(0,0,0,0.75) 100%
+  );
+}
+
+.sucursal-detalle > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* HERO */
+.hero {
+  padding: 100px 0 60px;
+  color: white;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 8vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+
+.hero span {
+  color: #0d4fa8;
+}
+
+/* BOTONES */
+.btn-evo {
+  background: orange;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 40px;
+  font-weight: bold;
+  color: white;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.btn-info-evo {
+  background: #0d4fa8;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: white;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+/* TARJETA NARANJA */
+.info {
+  background: rgba(255, 140, 0, 0.92);
+  border-radius: 40px;
+  padding: 40px;
+  color: white;
+  margin-bottom: 80px;
+}
+
+/* PROFES */
+.profes {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.profe img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profe span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* ACTIVIDADES */
+.actividades {
+  padding-bottom: 120px;
+}
+
+.titulo {
+  color: white;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.titulo span {
+  color: orange;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.card-actividad {
+  height: 320px;
+  border-radius: 25px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card-actividad:hover {
+  transform: translateY(-8px);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* IMÁGENES DE FONDO CARDS */
+.card1 { background-image: url("/images/fondobicis.jpg"); }
+.card2 { background-image: url("/images/adultofit.jpg"); }
+
+/* BENEFICIOS */
+.beneficios {
+  list-style: none;
+  padding-left: 0;
+}
+
+.beneficios li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+/* CHECKS */
+.beneficios img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* IMÁGENES RESPONSIVE GENERALES */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* MOBILE AJUSTES */
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 70px 0 40px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .titulo {
+    font-size: 2rem;
+  }
+
+  .info {
+    padding: 25px;
+    border-radius: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: auto;
+  }
+
+  .info .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .profes {
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .profe img {
+    margin-top: 20px;
+    width: 110px;
+    height: 110px;
+  }
+
+}
+@media (max-width: 700px) {
+
+  .cards {
+    grid-template-columns: 1fr; /* UNA SOLA */
+  }
+
+  .card-actividad {
+    height: 360px; /* un poco más alta para impacto */
+  }
+
+}

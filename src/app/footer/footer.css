@@ -1,0 +1,114 @@
+.footer {
+  background-color: rgb(20, 64, 146);
+  color: #e0e0e0;
+  padding: 40px 0 20px;
+  font-family: 'Inter', sans-serif; /* O la fuente que uses */
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr; /* Proporciones reales */
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+/* BRANDING */
+.marca {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+
+.marca span { color: orange; }
+
+.brand p {
+  font-size: 0.9rem;
+  max-width: 250px;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+/* TÍTULOS DE COLUMNA */
+.footer h5 {
+  color: orange;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* LISTAS DE LINKS */
+.links-list, .contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.links-list a, .contact-info a, .contact-info span {
+  font-size: 0.9rem;
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  opacity: 0.7;
+}
+
+.links-list a:hover {
+  opacity: 1;
+  color: orange;
+  transform: translateX(5px); /* Efecto sutil de desplazamiento */
+}
+
+/* REDES COMPACTAS */
+.redes {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.icono-red {
+  width: 32px;
+  height: 32px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px; /* Cuadrado redondeado es más moderno que círculo total */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.icono-red img { width: 18px; filter: brightness(0) invert(1); }
+
+.icono-red:hover {
+  background: orange;
+  transform: translateY(-3px);
+}
+
+/* BARRA INFERIOR */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.legal-links { display: flex; gap: 20px; }
+.legal-links a { color: white; text-decoration: none; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+  .brand p { max-width: 100%; }
+  .redes { justify-content: center; }
+  .footer-bottom { flex-direction: column; gap: 10px; }
+  .links-list a:hover { transform: none; }
+}

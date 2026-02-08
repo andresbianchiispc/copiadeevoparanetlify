@@ -1,0 +1,285 @@
+/* =========================
+   FONDO GLOBAL
+========================= */
+.home {
+  position: relative;
+  background-image: url('/images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.home::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 80, 200, 0.35);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+
+.home > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   ENCABEZADO
+========================= */
+.home .encabezado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.home .encabezado h1 {
+  color: white;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+.home .encabezado h1 span {
+  color: orange;
+}
+
+.home .encabezado .btn-evo {
+  margin-top: 25px;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  color: white;
+  background-color: orange;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.home .encabezado .btn-evo:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================
+   LOGOS REDES
+========================= */
+.logos {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+/* =========================
+   TITULOS GENERALES
+========================= */
+.titulo {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.titulo span {
+  color: orange;
+}
+
+/* =========================
+   PLANES – CARDS
+========================= */
+.plan-card {
+  margin-top: 30px;
+  border-radius: 22px;
+  transition: all 0.3s ease;
+  border: none;
+  overflow: visible;
+  position: relative;
+  background: #f8f9fc;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.plan-card:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+
+/* Línea superior */
+.plan-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+}
+
+/* Colores por plan */
+.plan-mensual::before { background:#2f6bff; }
+.plan-trimestral::before { background:orange; }
+.plan-semestral::before { background:#1d3396; }
+.plan-anual::before { background:#28a745; }
+
+/* Precio */
+.plan-card h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+.plan-mensual h2 { color:#2f6bff; }
+.plan-trimestral h2 { color:orange; }
+.plan-semestral h2 { color:#1d3396; }
+.plan-anual h2 { color:#28a745; }
+
+/* Botones */
+.plan-card .btn {
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 12px;
+  color: white;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+.plan-mensual .btn { background:#2f6bff; border:none; }
+.plan-trimestral .btn { background:orange; border:none; }
+.plan-semestral .btn { background:#1d3396; border:none; }
+.plan-anual .btn { background:#28a745; border:none; }
+
+/* BENEFICIOS */
+.plan-card ul img {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+
+.precio-box {
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* =========================
+   SUCURSALES
+========================= */
+.sucursal-card {
+  position: relative;
+  height: 320px;
+  border-radius: 25px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  align-items: end;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.sucursal-card:hover {
+  transform: scale(1.02);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75) 0%,
+    rgba(0,0,0,0.45) 30%,
+    rgba(0,0,0,0.15) 55%,
+    transparent 75%
+  );
+}
+
+
+.sucursal-card h3 {
+  position: relative;
+  color: white;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.sucursal-card h3 span {
+  color: orange;
+}
+
+/* =========================
+   PORQUE
+========================= */
+.porque {
+  position: relative;
+  padding: 80px 20px;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.porque::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(3px);
+  z-index: 0;
+}
+
+.porque > * {
+  position: relative;
+  z-index: 1;
+}
+
+.porque .titulo {
+  color: orange;
+  font-weight: 700;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.porque .subtitulo {
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+}
+
+.porque .descripcion {
+  max-width: 800px;
+  margin: auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.porque span {
+  color: orange;
+  font-weight: 600;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 480px) {
+
+  .logos {
+    margin-top: 15px;
+    gap: 12px;
+  }
+
+  .logos img {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .home .encabezado h1 {
+    padding: 0 16px;
+    font-size: 2rem;
+  }
+
+  .home .encabezado .btn-evo {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .plan-card {
+    border-radius: 18px;
+  }
+}
