@@ -1,188 +1,296 @@
 <div id="home" class="home">
-    <div class="encabezado" style="padding: 40px 0">
-        <div class="logos">
-            <a href="https://www.facebook.com/EvoClubOtraVida/" target="_blank">
-                <img src="assets/images/logo-facebook.svg" alt="Facebook" class="logo" style="width: 50px" />
+
+    <header class="encabezado" style="padding: 40px 0">
+        <div class="logos mb-3">
+            <a href="https://www.facebook.com/EvoClubOtraVida/" target="_blank" rel="noopener">
+                <img src="assets/images/logo-facebook.svg" alt="Facebook Evo Club" class="logo" style="width: 50px" />
             </a>
-            <a href="https://www.instagram.com/evogimnasio/" target="_blank">
-                <img src="assets/images/logo-instagram.svg" alt="Instagram" class="logo" style="width: 50px" />
+            <a href="https://www.instagram.com/evogimnasio/" target="_blank" rel="noopener">
+                <img src="assets/images/logo-instagram.svg" alt="Instagram Evo Club" class="logo" style="width: 50px" />
             </a>
         </div>
 
         <h1 class="titulo">ENCONTRÁ TU <span>MEJOR VERSIÓN</span></h1>
 
-        <button type="button" class="btn btn-evo">Quiero sumarme a Evo</button>
-    </div>
+        <button class="btn-evo"
+            onclick="window.open('https://api.whatsapp.com/send?phone=543517686021')">
+            Quiero sumarme a Evo
+        </button>
+    </header>
 
-    <!-- Planes-->
-    <section id="planes" class="cards">
-        <section class="container my-5">
+    <section id="planes" class="cards py-5">
+        <div class="container">
             <div class="row g-4 justify-content-center">
-                <!-- MENSUAL -->
+
                 <div class="col-sm-12 col-md-6 col-lg-3">
-                    <div class="card h-100 text-center shadow-sm plan-card">
+                    <div class="card h-100 text-center shadow-sm plan-card plan-mensual position-relative">
                         <div class="card-body d-flex flex-column">
-
                             <h4 class="fw-bold text-primary">MENSUAL</h4>
-
                             <div class="precio-box">
-                                <h2 class="fw-bold text-primary">$50.000</h2>
+                                <h2 class="fw-bold">$50.000</h2>
                             </div>
-
                             <h6 class="fw-bold">BENEFICIOS</h6>
-
                             <ul class="list-unstyled mt-3 text-start">
-                                <li><img src="assets/images/check.png" alt=""> Plan mensual</li>
-                                <li><img src="assets/images/check.png" alt=""> Acceso a todas nuestras sedes</li>
-                                <li><img src="assets/images/check.png" alt=""> Acceso a nuestra app</li>
-                                <li><img src="assets/images/check.png" alt=""> Sin mínimo de permanencia</li>
+                                <li><img src="assets/images/check.png" alt="incluido"> Plan mensual</li>
+                                <li><img src="assets/images/check.png" alt="incluido"> Acceso a todas nuestras sedes
+                                </li>
+                                <li><img src="assets/images/check.png" alt="incluido"> Acceso a nuestra app</li>
+                                <li><img src="assets/images/check.png" alt="incluido"> Sin mínimo de permanencia</li>
                             </ul>
+                            <button (click)="toggleModal('mensual')" class="btn text-white w-100 mt-auto">Elegir
+                                Plan</button>
+                        </div>
 
-                            <button class="btn btn-primary w-100 mt-auto">Elegir Plan</button>
+                        <!-- Modal para este plan -->
+                        <div *ngIf="modalAbierto === 'mensual'" class="modal-plan" (click)="cerrarModal()">
+                            <div class="modal-plan-contenido" (click)="$event.stopPropagation()">
+                                <h5 class="mb-3">Elegí tu sede</h5>
+                                <a href="https://api.whatsapp.com/send?phone=543517629283&text=Hola%20quiero%20informaci%C3%B3n%20sobre%20el%20PLAN%20MENSUAL%20de%20Evo%20Training%20Club"
+                                    target="_blank" class="btn btn-success w-100 mb-2">
+                                    <i class="bi bi-whatsapp me-2"></i>Barrio Jardín
+                                </a>
+                                <a href="https://api.whatsapp.com/send?phone=543517686021&text=%F0%9F%98%84%20Hola%20EVO!%20Quiero%20sumarme%20a%20la%20familia%20EVO%20y%20consultar%20por%20el%20PLAN%20MENSUAL%F0%9F%92%AC"
+                                    target="_blank" class="btn btn-success w-100 mb-2">
+                                    <i class="bi bi-whatsapp me-2"></i>Villa Belgrano
+                                </a>
+                                <a href="https://api.whatsapp.com/send?phone=5493518070884&text=%F0%9F%98%84%20Hola%20EVO!%20Quiero%20sumarme%20a%20la%20familia%20EVO%20con%20el%20PLAN%20MENSUAL...%F0%9F%92%AC"
+                                    target="_blank" class="btn btn-success w-100 mb-3">
+                                    <i class="bi bi-whatsapp me-2"></i>Villa Allende
+                                </a>
+                                <button (click)="cerrarModal()" class="btn btn-secondary w-100">Cancelar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-
-                <!-- TRIMESTRAL -->
                 <div class="col-sm-12 col-md-6 col-lg-3">
-                    <div class="card h-100 text-center shadow plan-card text-white" style="background-color: orange">
+                    <div class="card h-100 text-center shadow plan-card plan-trimestral text-white position-relative">
                         <div class="card-body d-flex flex-column">
-
                             <h4 class="fw-bold">TRIMESTRAL</h4>
-
                             <div class="precio-box">
                                 <h2 class="fw-bold">$120.000</h2>
                                 <p>O 3 cuotas de $46.666</p>
                             </div>
-
                             <h6 class="fw-bold">BENEFICIOS</h6>
-
                             <ul class="list-unstyled mt-3 text-start">
-                                <li><img src="assets/images/check.png" alt=""> Mejor precio por mes</li>
-                                <li><img src="assets/images/check.png" alt=""> Acceso a todas nuestras sedes</li>
-                                <li><img src="assets/images/check.png" alt=""> Acceso a nuestra app</li>
-                                <li><img src="assets/images/check.png" alt=""> Se puede pagar en cuotas</li>
+                                <li><img src="assets/images/check.png" alt="incluido"> Mejor precio por mes</li>
+                                <li><img src="assets/images/check.png" alt="incluido"> Acceso a todas nuestras sedes
+                                </li>
+                                <li><img src="assets/images/check.png" alt="incluido"> Acceso a nuestra app</li>
+                                <li><img src="assets/images/check.png" alt="incluido"> Se puede pagar en cuotas</li>
                             </ul>
+                            <button (click)="toggleModal('trimestral')" class="btn text-white w-100 mt-auto">Elegir
+                                Plan</button>
+                        </div>
 
-                            <button class="btn btn-primary w-100 mt-auto">Elegir Plan</button>
+                        <!-- Modal para este plan -->
+                        <div *ngIf="modalAbierto === 'trimestral'" class="modal-plan" (click)="cerrarModal()">
+                            <div class="modal-plan-contenido" (click)="$event.stopPropagation()">
+                                <h5 class="mb-3">Elegí tu sede más cercana</h5>
+                                <a href="https://api.whatsapp.com/send?phone=543517629283&text=Hola%20quiero%20informaci%C3%B3n%20sobre%20el%20PLAN%20TRIMESTRAL%20de%20Evo%20Training%20Club"
+                                    target="_blank" class="btn btn-success w-100 mb-2">
+                                    <i class="bi bi-whatsapp me-2"></i>Barrio Jardín
+                                </a>
+                                <a href="https://api.whatsapp.com/send?phone=543517686021&text=%F0%9F%98%84%20Hola%20EVO!%20Quiero%20sumarme%20a%20la%20familia%20EVO%20y%20consultar%20por%20el%20PLAN%20TRIMESTRAL%F0%9F%92%AC"
+                                    target="_blank" class="btn btn-success w-100 mb-2">
+                                    <i class="bi bi-whatsapp me-2"></i>Villa Belgrano
+                                </a>
+                                <a href="https://api.whatsapp.com/send?phone=5493518070884&text=%F0%9F%98%84%20Hola%20EVO!%20Quiero%20sumarme%20a%20la%20familia%20EVO%20con%20el%20PLAN%20TRIMESTRAL...%F0%9F%92%AC"
+                                    target="_blank" class="btn btn-success w-100 mb-3">
+                                    <i class="bi bi-whatsapp me-2"></i>Villa Allende
+                                </a>
+                                <button (click)="cerrarModal()" class="btn btn-secondary w-100">Cancelar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-
-                <!-- SEMESTRAL -->
                 <div class="col-sm-12 col-md-6 col-lg-3">
-                    <div class="card h-100 text-center shadow-lg plan-card text-white position-relative"
-                        style="background-color: rgb(29, 51, 150)">
-
-                        <span
-                            class="badge bg-light text-danger position-absolute top-0 start-50 translate-middle px-3 py-2">
+                    <div class="card h-100 text-center shadow-lg plan-card plan-semestral text-white position-relative">
+                        <span *ngIf="modalAbierto !== 'semestral'"
+                            class="badge bg-light text-danger position-absolute top-0 start-50 translate-middle px-3 py-2 shadow-sm">
                             PLAN MÁS ELEGIDO
                         </span>
-
-                        <div class="card-body d-flex flex-column">
-
+                        <div class="card-body d-flex flex-column pt-4">
                             <h4 class="fw-bold">SEMESTRAL</h4>
-
                             <div class="precio-box">
                                 <h2 class="fw-bold">$230.000</h2>
                                 <p>O 6 cuotas de $41.666</p>
                             </div>
-
                             <h6 class="fw-bold">BENEFICIOS</h6>
-
                             <ul class="list-unstyled mt-3 text-start">
-                                <li><img src="assets/images/check.png" alt=""> Precio más bajo</li>
-                                <li><img src="assets/images/check.png" alt=""> Acceso a todas nuestras sedes</li>
-                                <li><img src="assets/images/check.png" alt=""> Acceso a nuestra app</li>
-                                <li><img src="assets/images/check.png" alt=""> Más cuotas para pagar</li>
+                                <li><img src="assets/images/check.png" alt="incluido"> Precio más bajo</li>
+                                <li><img src="assets/images/check.png" alt="incluido"> Acceso a todas nuestras sedes
+                                </li>
+                                <li><img src="assets/images/check.png" alt="incluido"> Acceso a nuestra app</li>
+                                <li><img src="assets/images/check.png" alt="incluido"> Más cuotas para pagar</li>
                             </ul>
+                            <button (click)="toggleModal('semestral')"
+                                class="btn w-100 mt-auto text-dark fw-bold">Elegir Plan</button>
+                        </div>
 
-                            <button class="btn btn-warning w-100 mt-auto">Elegir Plan</button>
+                        <!-- Modal para este plan -->
+                        <div *ngIf="modalAbierto === 'semestral'" class="modal-plan" (click)="cerrarModal()">
+                            <div class="modal-plan-contenido" (click)="$event.stopPropagation()">
+                                <h5 class="mb-3">Elegí tu sede</h5>
+                                <a href="https://api.whatsapp.com/send?phone=543517629283&text=Hola%20quiero%20informaci%C3%B3n%20sobre%20el%20PLAN%20SEMESTRAL%20de%20Evo%20Training%20Club"
+                                    target="_blank" class="btn btn-success w-100 mb-2">
+                                    <i class="bi bi-whatsapp me-2"></i>Barrio Jardín
+                                </a>
+                                <a href="https://api.whatsapp.com/send?phone=543517686021&text=%F0%9F%98%84%20Hola%20EVO!%20Quiero%20sumarme%20a%20la%20familia%20EVO%20y%20consultar%20por%20el%20PLAN%20SEMESTRAL%F0%9F%92%AC"
+                                    target="_blank" class="btn btn-success w-100 mb-2">
+                                    <i class="bi bi-whatsapp me-2"></i>Villa Belgrano
+                                </a>
+                                <a href="https://api.whatsapp.com/send?phone=5493518070884&text=%F0%9F%98%84%20Hola%20EVO!%20Quiero%20sumarme%20a%20la%20familia%20EVO%20con%20el%20PLAN%20SEMESTRAL...%F0%9F%92%AC"
+                                    target="_blank" class="btn btn-success w-100 mb-3">
+                                    <i class="bi bi-whatsapp me-2"></i>Villa Allende
+                                </a>
+                                <button (click)="cerrarModal()" class="btn btn-secondary w-100">Cancelar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-
-                <!-- ANUAL -->
                 <div class="col-sm-12 col-md-6 col-lg-3">
-                    <div class="card h-100 text-center shadow-sm plan-card">
+                    <div class="card h-100 text-center shadow-sm plan-card plan-anual position-relative">
                         <div class="card-body d-flex flex-column">
-
                             <h4 class="fw-bold text-primary">ANUAL</h4>
-
                             <div class="precio-box">
-                                <h2 class="fw-bold text-primary">$440.000</h2>
+                                <h2 class="fw-bold">$440.000</h2>
                                 <p>O 12 cuotas de $40.000</p>
                             </div>
-
                             <h6 class="fw-bold">BENEFICIOS</h6>
-
                             <ul class="list-unstyled mt-3 text-start">
-                                <li><img src="assets/images/check.png" alt=""> El precio más bajo</li>
-                                <li><img src="assets/images/check.png" alt=""> Acceso a todas nuestras sedes</li>
-                                <li><img src="assets/images/check.png" alt=""> Acceso a nuestra app</li>
-                                <li><img src="assets/images/check.png" alt=""> Pagás en cuotas</li>
+                                <li><img src="assets/images/check.png" alt="incluido"> El precio más bajo</li>
+                                <li><img src="assets/images/check.png" alt="incluido"> Acceso a todas nuestras sedes
+                                </li>
+                                <li><img src="assets/images/check.png" alt="incluido"> Acceso a nuestra app</li>
+                                <li><img src="assets/images/check.png" alt="incluido"> Pagás en cuotas</li>
                             </ul>
+                            <button (click)="toggleModal('anual')" class="btn w-100 mt-auto fw-bold">Elegir Plan</button>
+                        </div>
 
-                            <button class="btn btn-warning w-100 mt-auto">Elegir Plan</button>
+                        <!-- Modal para este plan -->
+                        <div *ngIf="modalAbierto === 'anual'" class="modal-plan" (click)="cerrarModal()">
+                            <div class="modal-plan-contenido" (click)="$event.stopPropagation()">
+                                <h5 class="mb-3">Elegí tu sede</h5>
+                                <a href="https://api.whatsapp.com/send?phone=543517629283&text=Hola%20quiero%20informaci%C3%B3n%20sobre%20el%20PLAN%20ANUAL%20de%20Evo%20Training%20Club"
+                                    target="_blank" class="btn btn-success w-100 mb-2">
+                                    <i class="bi bi-whatsapp me-2"></i>Barrio Jardín
+                                </a>
+                                <a href="https://api.whatsapp.com/send?phone=543517686021&text=%F0%9F%98%84%20Hola%20EVO!%20Quiero%20sumarme%20a%20la%20familia%20EVO%20y%20consultar%20por%20el%20PLAN%20ANUAL%F0%9F%92%AC"
+                                    target="_blank" class="btn btn-success w-100 mb-2">
+                                    <i class="bi bi-whatsapp me-2"></i>Villa Belgrano
+                                </a>
+                                <a href="https://api.whatsapp.com/send?phone=5493518070884&text=%F0%9F%98%84%20Hola%20EVO!%20Quiero%20sumarme%20a%20la%20familia%20EVO%20con%20el%20PLAN%20ANUAL...%F0%9F%92%AC"
+                                    target="_blank" class="btn btn-success w-100 mb-3">
+                                    <i class="bi bi-whatsapp me-2"></i>Villa Allende
+                                </a>
+                                <button (click)="cerrarModal()" class="btn btn-secondary w-100">Cancelar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
             </div>
-        </section>
-    </section>
-
-    <section id="sucursales" class="sucursales container py-5">
-        <h2 class="titulo mb-5">
-            NUESTRAS <span>SUCURSALES</span>
-        </h2>
-
-        <div class="row g-4">
-
-            <!-- BARRIO JARDIN -->
-            <div class="col-md-6" routerLink="/barriojardin">
-                <div class="sucursal-card" style="background-image: url('assets/images/barriojardin.jpg');">
-                    <div class="overlay"></div>
-                    <h3>EVO <span>BARRIO JARDÍN</span></h3>
-                </div>
-            </div>
-
-            <!-- VILLA BELGRANO -->
-            <div class="col-md-6" routerLink="/villabelgrano">
-                <div class="sucursal-card" style="background-image: url('assets/images/villabelgrano.jpg');">
-                    <div class="overlay"></div>
-                    <h3>EVO <span>VILLA BELGRANO</span></h3>
-                </div>
-            </div>
-
-            <!-- VILLA ALLENDE -->
-            <div class="col-md-6" routerLink="/villaallende">
-                <div class="sucursal-card" style="background-image: url('assets/images/villaallende.jpg');">
-                    <div class="overlay"></div>
-                    <h3>EVO <span>VILLA ALLENDE</span></h3>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <section class="porque">
+    <section id="sucursales" class="sucursales container py-5">
+        <h2 class="titulo mb-5 text-center">NUESTRAS <span>SUCURSALES</span></h2>
+        <div class="row g-4">
+            <!-- Barrio Jardín -->
+            <div class="col-md-4">
+                <div class="sucursal-card position-relative">
+                    <!-- Carrusel de imágenes -->
+                    <div class="carousel-sucursal">
+                        <div class="carousel-imagen active"
+                            style="background-image: url('assets/images/barriojardin.jpg');"></div>
+                        <div class="carousel-imagen" style="background-image: url('assets/images/barriojardin-2.jpg');">
+                        </div>
+                        <div class="carousel-imagen" style="background-image: url('assets/images/barriojardin-3.jpg');">
+                        </div>
+                    </div>
+                    <div class="overlay"></div>
+                    <div class="sucursal-info">
+                        <h3>EVO <span>BARRIO JARDÍN</span></h3>
+                        <div class="horarios mt-3">
+                            <p class="mb-1"><i class="bi bi-clock me-2"></i>Lunes a Viernes: 6:00 - 23:00</p>
+                            <p class="mb-1"><i class="bi bi-clock me-2"></i>Sábados: 8:00 - 20:00</p>
+                            <p class="mb-3"><i class="bi bi-clock me-2"></i>Domingos: 9:00 - 14:00</p>
+                            <a [routerLink]="['/barriojardin']" class="btn btn-warning btn-sm">
+                                <i class="bi bi-info-circle me-1"></i>Ver más info de la sucursal
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Villa Belgrano -->
+            <div class="col-md-4">
+                <div class="sucursal-card position-relative">
+                    <!-- Carrusel de imágenes -->
+                    <div class="carousel-sucursal">
+                        <div class="carousel-imagen active"
+                            style="background-image: url('assets/images/villabelgrano.jpg');"></div>
+                        <div class="carousel-imagen"
+                            style="background-image: url('assets/images/villabelgrano-2.jpg');"></div>
+                        <div class="carousel-imagen"
+                            style="background-image: url('assets/images/villabelgrano-3.jpg');"></div>
+                    </div>
+                    <div class="overlay"></div>
+                    <div class="sucursal-info">
+                        <h3>EVO <span>VILLA BELGRANO</span></h3>
+                        <div class="horarios mt-3">
+                            <p class="mb-1"><i class="bi bi-clock me-2"></i>Lunes a Viernes: 6:00 - 23:00</p>
+                            <p class="mb-1"><i class="bi bi-clock me-2"></i>Sábados: 8:00 - 20:00</p>
+                            <p class="mb-3"><i class="bi bi-clock me-2"></i>Domingos: 9:00 - 14:00</p>
+                            <a [routerLink]="['/villabelgrano']" class="btn btn-warning btn-sm">
+                                <i class="bi bi-info-circle me-1"></i>Ver más info de la sucursal
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Villa Allende -->
+            <div class="col-md-4">
+                <div class="sucursal-card position-relative">
+                    <!-- Carrusel de imágenes -->
+                    <div class="carousel-sucursal">
+                        <div class="carousel-imagen active"
+                            style="background-image: url('assets/images/villaallende.jpg');"></div>
+                        <div class="carousel-imagen" style="background-image: url('assets/images/villaallende-2.jpg');">
+                        </div>
+                        <div class="carousel-imagen" style="background-image: url('assets/images/villaallende-3.jpg');">
+                        </div>
+                    </div>
+                    <div class="overlay"></div>
+                    <div class="sucursal-info">
+                        <h3>EVO <span>VILLA ALLENDE</span></h3>
+                        <div class="horarios mt-3">
+                            <p class="mb-1"><i class="bi bi-clock me-2"></i>Lunes a Viernes: 6:00 - 23:00</p>
+                            <p class="mb-1"><i class="bi bi-clock me-2"></i>Sábados: 8:00 - 20:00</p>
+                            <p class="mb-3"><i class="bi bi-clock me-2"></i>Domingos: 9:00 - 14:00</p>
+                            <a [routerLink]="['/villaallende']" class="btn btn-warning btn-sm">
+                                <i class="bi bi-info-circle me-1"></i>Ver más info de la sucursal
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="porque py-5">
         <div class="container text-center">
             <h2 class="titulo">¿POR QUÉ ELEGIRNOS?</h2>
-
-            <p class="subtitulo">
-                PORQUE TE AYUDAMOS A <strong>ENCONTRAR TU MEJOR VERSIÓN</strong>
-            </p>
-
-            <p class="descripcion">
-                En <span>Evo Training Club</span> te ofrecemos un servicio de alta calidad con
-                entrenamiento individualizado. Contamos con
-                <span>profesores profesionales</span> formados en diversas especialidades.
-                No te ofrecemos alquilar nuestras instalaciones,
-                <span>te ofrecemos un gimnasio de verdad.</span>
+            <p class="subtitulo mt-3">PORQUE TE AYUDAMOS A <strong>ENCONTRAR TU MEJOR VERSIÓN</strong></p>
+            <p class="descripcion mx-auto" style="max-width: 800px;">
+                En <span>Evo Training Club</span> te ofrecemos un servicio de alta calidad con entrenamiento
+                individualizado.
+                Contamos con <span>profesores profesionales</span> formados en diversas especialidades.
+                No te ofrecemos alquilar nuestras instalaciones, <span>te ofrecemos un gimnasio de verdad.</span>
             </p>
         </div>
     </section>

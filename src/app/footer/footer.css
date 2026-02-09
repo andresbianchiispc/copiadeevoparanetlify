@@ -21,7 +21,9 @@
   margin-bottom: 10px;
 }
 
-.marca span { color: orange; }
+.marca span {
+  color: orange;
+}
 
 .brand p {
   font-size: 0.9rem;
@@ -41,13 +43,16 @@
 }
 
 /* LISTAS DE LINKS */
-.links-list, .contact-info {
+.links-list,
+.contact-info {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.links-list a, .contact-info a, .contact-info span {
+.links-list a,
+.contact-info a,
+.contact-info span {
   font-size: 0.9rem;
   color: white;
   text-decoration: none;
@@ -71,7 +76,7 @@
 .icono-red {
   width: 32px;
   height: 32px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 8px; /* Cuadrado redondeado es más moderno que círculo total */
   display: flex;
   align-items: center;
@@ -79,7 +84,10 @@
   transition: 0.3s;
 }
 
-.icono-red img { width: 18px; filter: brightness(0) invert(1); }
+.icono-red img {
+  width: 18px;
+  filter: brightness(0) invert(1);
+}
 
 .icono-red:hover {
   background: orange;
@@ -88,7 +96,7 @@
 
 /* BARRA INFERIOR */
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding-top: 20px;
   display: flex;
   justify-content: space-between;
@@ -97,8 +105,14 @@
   opacity: 0.6;
 }
 
-.legal-links { display: flex; gap: 20px; }
-.legal-links a { color: white; text-decoration: none; }
+.legal-links {
+  display: flex;
+  gap: 20px;
+}
+.legal-links a {
+  color: white;
+  text-decoration: none;
+}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -107,8 +121,64 @@
     text-align: center;
     gap: 30px;
   }
-  .brand p { max-width: 100%; }
-  .redes { justify-content: center; }
-  .footer-bottom { flex-direction: column; gap: 10px; }
-  .links-list a:hover { transform: none; }
+  .brand p {
+    max-width: 100%;
+  }
+  .redes {
+    justify-content: center;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .links-list a:hover {
+    transform: none;
+  }
+}
+
+.sedes-footer {
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+
+  .contact-info {
+    align-items: center;
+  }
+
+  .sedes-footer {
+    align-items: center;
+    width: 100%;
+  }
+
+  .sedes-footer a {
+    justify-content: center;
+    margin: 0 auto;   /* ESTA es la clave real */
+  }
+}
+
+
+
+.sedes-footer a {
+  text-decoration: none;
+  color: white;
+  font-size: 0.95rem;
+  display: flex;  
+  align-items: center;
+  gap: 6px;
+  opacity: 0.9;
+  transition: 0.2s;
+  width: auto;     
+}
+
+
+
+.sedes-footer a:hover {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+.sedes-footer i {
+  color: #25d366; /* verde WhatsApp */
+  font-size: 1.1rem;
 }

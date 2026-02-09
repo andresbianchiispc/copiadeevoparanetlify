@@ -12,7 +12,7 @@
           <a href="https://www.instagram.com/evogimnasio/" target="_blank">
             <img src="assets/images/logo-instagram.svg" alt="Instagram" class="logo" style="width: 40px" />
           </a>
-          
+
 
         </div>
       </div>
@@ -32,17 +32,36 @@
         <div class="contact-info">
           <span><i class="bi bi-geo-alt"></i> Córdoba, Argentina</span>
           <a href="mailto:info@evoclub.com.ar">info@evoclub.com.ar</a>
-          <a href="tel:+54351000000" class="tel">351 000-0000</a>
+
+          <div class="sedes-footer">
+
+            <a href="https://wa.me/543517629283" target="_blank" class="tel">
+              <i class="bi bi-whatsapp"></i>
+              Barrio Jardín – WhatsApp
+            </a>
+
+            <a href="https://wa.me/543517686021" target="_blank" class="tel">
+              <i class="bi bi-whatsapp"></i>
+              Villa Belgrano – WhatsApp
+            </a>
+
+            <a href="https://wa.me/5493518070884" target="_blank" class="tel">
+              <i class="bi bi-whatsapp"></i>
+              Villa Allende – WhatsApp
+            </a>
+
+          </div>
         </div>
       </div>
+
 
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 Evo — Todos los derechos reservados</p>
+      <p>© 2026 Evo – Todos los derechos reservados</p>
       <div class="legal-links">
-        <a href="#">Términos</a>
-        <a href="#">Privacidad</a>
+        <a [routerLink]="['/terminos-y-condiciones']">Términos</a>
+        <a [routerLink]="['/politica-de-privacidad']">Privacidad</a>
       </div>
     </div>
   </div>

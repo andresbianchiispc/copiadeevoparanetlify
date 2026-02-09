@@ -17,12 +17,11 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-
-    background: linear-gradient(
+  background: linear-gradient(
     to bottom,
-    rgba(226, 147, 0, 0.5) 0%,
-    rgba(0,0,0,0.45) 15%,
-    rgba(0,0,0,0.75) 100%       /* oscuro abajo */
+    rgba(226, 147, 0, 0.25) 0%,    
+    rgba(0, 0, 0, 0.4) 30%,       
+    rgba(0, 0, 0, 0.7) 100%      
   );
 }
 
@@ -46,6 +45,7 @@
 
 .hero span {
   color: #0d4fa8;
+    text-shadow: 1px 2px 2px  rgb(255, 255, 255);
 }
 
 /* BOTONES */
@@ -159,7 +159,10 @@
 
 /* IMÁGENES */
 .card1 { background-image: url("/assets/images/fondobicis.jpg"); }
-.card2 { background-image: url("/assets/images/profebrian.jpg"); }
+.card2 { 
+  background-image:url("/assets/images/profebrian.jpg");
+  background-position: center 40%;
+}
 
 /* BENEFICIOS */
 .beneficios {

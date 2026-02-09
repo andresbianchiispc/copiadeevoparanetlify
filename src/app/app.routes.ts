@@ -16,5 +16,13 @@ export const routes: Routes = [
     { 
         path: 'villaallende', 
         loadComponent: () => import('./Pages/sede-villa-allende/sede-villa-allende').then(m => m.SedeVillaAllende) 
+    },
+    {
+        path: 'terminos-y-condiciones',
+        loadComponent: () => import('./Pages/terminos-y-condiciones/terminos-y-condiciones').then(m => m.TerminosYCondiciones)
+    },
+    {
+        path: 'politica-de-privacidad',
+        loadComponent: () => import('./Pages/politica-de-privacidad/politica-de-privacidad').then(m => m.PoliticaDePrivacidad)
     }
 ];

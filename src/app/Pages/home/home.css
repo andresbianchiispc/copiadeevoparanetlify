@@ -101,24 +101,19 @@
 
 .plan-card:hover {
   box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  transform: translateY(-5px);
 }
 
+/* Colores por plan removidos - sin borde superior */
 
-/* Línea superior */
-.plan-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 6px;
-  width: 100%;
+/* Fondos de cards especiales */
+.plan-trimestral {
+  background-color: orange !important;
 }
 
-/* Colores por plan */
-.plan-mensual::before { background:#2f6bff; }
-.plan-trimestral::before { background:orange; }
-.plan-semestral::before { background:#1d3396; }
-.plan-anual::before { background:#28a745; }
+.plan-semestral {
+  background-color: rgb(29, 51, 150) !important;
+}
 
 /* Precio */
 .plan-card h2 {
@@ -128,8 +123,8 @@
 }
 
 .plan-mensual h2 { color:#2f6bff; }
-.plan-trimestral h2 { color:orange; }
-.plan-semestral h2 { color:#1d3396; }
+.plan-trimestral h2 { color:white; }
+.plan-semestral h2 { color:white; }
 .plan-anual h2 { color:#28a745; }
 
 /* Botones */
@@ -137,20 +132,55 @@
   border-radius: 12px;
   font-weight: 600;
   padding: 12px;
-  color: white;
   box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
 }
 
-.plan-mensual .btn { background:#2f6bff; border:none; }
-.plan-trimestral .btn { background:orange; border:none; }
-.plan-semestral .btn { background:#1d3396; border:none; }
-.plan-anual .btn { background:#28a745; border:none; }
+.plan-card .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+}
+
+.plan-mensual .btn { 
+  background:#2f6bff; 
+  border:none; 
+  color: white;
+}
+
+.plan-trimestral .btn { 
+  background:#2f6bff; 
+  border:none; 
+  color: white;
+}
+
+.plan-semestral .btn { 
+  background:#ffc107; 
+  border:none; 
+  color: #000;
+}
+
+.plan-anual .btn { 
+  background:#ffc107; 
+  border:none; 
+  color: #000;
+}
 
 /* BENEFICIOS */
+.plan-card ul {
+  padding-left: 0;
+}
+
+.plan-card ul li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
 .plan-card ul img {
   width: 20px;
   height: 20px;
-  margin-right: 6px;
+  margin-right: 8px;
+  flex-shrink: 0;
 }
 
 .precio-box {
@@ -160,25 +190,64 @@
   justify-content: center;
 }
 
+.precio-box p {
+  margin: 5px 0 0 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
 /* =========================
    SUCURSALES
 ========================= */
 .sucursal-card {
   position: relative;
-  height: 320px;
+  height: 380px;
   border-radius: 25px;
-  background-size: cover;
-  background-position: center;
   overflow: hidden;
   display: flex;
   align-items: end;
-  padding: 20px;
-  cursor: pointer;
+  padding: 0;
   transition: transform 0.3s ease;
 }
 
 .sucursal-card:hover {
   transform: scale(1.02);
+}
+
+.sucursal-card:hover .overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.85) 0%,
+    rgba(0,0,0,0.55) 40%,
+    rgba(0,0,0,0.25) 65%,
+    transparent 85%
+  );
+}
+
+/* Carrusel de imágenes */
+.carousel-sucursal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.carousel-imagen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-imagen.active {
+  opacity: 1;
 }
 
 .overlay {
@@ -191,18 +260,63 @@
     rgba(0,0,0,0.15) 55%,
     transparent 75%
   );
+  transition: background 0.3s ease;
+  z-index: 1;
 }
 
+.sucursal-info {
+  position: relative;
+  z-index: 2;
+  padding: 25px;
+  width: 100%;
+}
 
 .sucursal-card h3 {
   position: relative;
   color: white;
   font-weight: 700;
   z-index: 2;
+  font-size: 1.5rem;
+  margin: 0 0 10px 0;
 }
 
 .sucursal-card h3 span {
   color: orange;
+}
+
+.horarios {
+  color: white;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.horarios p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-weight: 500;
+}
+
+.horarios .btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.horarios .btn-warning {
+  background-color: #ffc107;
+  border: none;
+  color: #000;
+}
+
+.horarios .btn-warning:hover {
+  background-color: #ffb300;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
 }
 
 /* =========================
@@ -255,10 +369,100 @@
 }
 
 /* =========================
+   MODAL EN CARDS
+========================= */
+.modal-plan {
+  position: absolute;
+  top: 18%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-plan-contenido {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 90%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  animation: slideUp 0.3s ease;
+}
+
+.modal-plan-contenido h5 {
+  color: #1d3396;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.modal-plan-contenido .btn {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.modal-plan-contenido .btn-success {
+  background-color: #25d366;
+  border: none;
+}
+
+.modal-plan-contenido .btn-success:hover {
+  background-color: #20ba5a;
+  transform: translateY(-2px);
+}
+
+.modal-plan-contenido .btn-secondary {
+  background-color: #6c757d;
+  border: none;
+}
+
+.modal-plan-contenido .btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* =========================
    MOBILE
 ========================= */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .sucursal-card {
+    height: 350px;
+  }
 
+  .horarios {
+    font-size: 0.85rem;
+  }
+
+  .horarios p {
+    margin-bottom: 4px;
+  }
+
+  .porque {
+    padding: 60px 20px;
+  }
+
+  .porque .titulo {
+    font-size: 1.8rem;
+  }
+
+  .porque .subtitulo {
+    font-size: 1.2rem;
+  }
+
+  .porque .descripcion {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
   .logos {
     margin-top: 15px;
     gap: 12px;
@@ -281,5 +485,77 @@
 
   .plan-card {
     border-radius: 18px;
+    margin-top: 20px;
+  }
+
+  .plan-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .sucursal-card {
+    height: 320px;
+  }
+
+  .sucursal-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .horarios {
+    font-size: 0.8rem;
+  }
+
+  .horarios .btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .modal-contenido {
+    width: 100%;
+  }
+
+  .modal-contenido h4 {
+    font-size: 1.3rem;
+  }
+}
+
+/* =========================
+   ALINEACIÓN PLANES
+========================= */
+
+.plan-card .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Altura pareja para títulos */
+.plan-card h4 {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Caja de precio igual en todas */
+.plan-card .precio-box {
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Beneficios mismo alto */
+.plan-card ul {
+  flex-grow: 1;
+}
+
+/* Botón siempre abajo */ 
+.plan-card .btn {
+  margin-top: auto;
+}
+
+
+@media (max-width: 480px) {
+  .home {
+    background-position: center; 
   }
 }
